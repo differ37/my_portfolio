@@ -172,7 +172,7 @@
                 title: "AI 풀템 장착한\n업무 버프 서포터 PM",
                 detail: (
                     <>
-                        <span className="text-blue-300 font-bold">제미나이, 챗GPT, 미드저니, 감마,<br/>노트북LM</span> 등 다수의 AI툴을 실무에<br/>
+                        <span className="text-blue-300 font-bold">클로드, n8n, 오픈클로,<br/>제미나이, 챗GPT, 미드저니, 감마,<br/>노트북LM</span> 등 다수의 AI툴을 실무에<br/>
                         적극 활용합니다.<br/><br/>
                         이를 통해 기획·분석·커뮤니케이션<br/>
                         등의 <span className="text-yellow-400 font-bold">생산성 및 효율성을 극대화</span>하여<br/>
@@ -200,7 +200,7 @@
 
         const TIMELINE_DATA = [
             {
-                year: "2024 - NOW",
+                year: "2024 - 2026.01",
                 company: "한국 신스타임즈",
                 role: "사업 PM",
                 projects: [
@@ -414,7 +414,7 @@
             {
                 name: "프로젝트 S",
                 category: "2차원 SLG",
-                role: "메인 PM (2024.08~현재)",
+                role: "메인 PM (2024.08~2026.01)",
                 status: "론칭 준비 중",
                 desc: [
                 "경쟁작 분석 및 프로젝트 콘텐츠/BM 비교 분석 수행",
@@ -426,7 +426,7 @@
             {
                 name: "프로젝트 FC",
                 category: "캐주얼 축구 매니저",
-                role: "메인 PM (2025.07~현재)",
+                role: "메인 PM (2025.07~2026.01)",
                 status: "론칭 준비 중",
                 desc: [
                 "AI 툴(ChatGPT 등) 활용하여 기획 문서 50종 및 6,900줄 번역 효율성 극대화",
@@ -472,21 +472,26 @@
 
         // Updated Tool List
         const TOOL_LIST = [
-          { name: "Microsoft 365", color: "orange-500", logoUrl: "https://i.ibb.co/ycp3Z5bz/microsoft.png", sub: "(Excel, Word, PowerPoint)" }, 
-          { name: "Google Workspace", color: "blue-500", logoUrl: "https://i.ibb.co/ZzKqm8Sb/googleworkspace.png", sub: "(Docs, Sheets, Slides)" }, 
-          { name: "Gemini", color: "blue-400", logoUrl: "https://i.ibb.co/DHfLW2WH/gemini.png" },
-          { name: "ChatGPT", color: "green-400", logoUrl: "https://i.ibb.co/QvWb0bHH/chatgpt.png" },
-          { name: "Grok", color: "white", logoUrl: "https://i.ibb.co/cccxS6wL/grok.png" }, 
-          { name: "Perplexity", color: "teal-400", logoUrl: "https://i.ibb.co/RGf12WhM/per.png" }, 
-          { name: "Midjourney", color: "pink-400", logoUrl: "https://i.ibb.co/7NLP13wq/midjourney.png" },
-          { name: "ComfyUI", color: "purple-400", logoUrl: "https://i.ibb.co/VYNXws6G/comfyui.png" }, 
-          { name: "Gamma", color: "yellow-400", logoUrl: "https://i.ibb.co/Dx9kZn5/gamma.png" }, 
-          { name: "NotebookLM", color: "blue-300", logoUrl: "https://i.ibb.co/HTVPDpFs/notebooklm.png" }, 
-          { name: "Notion", color: "gray-200", logoUrl: "https://i.ibb.co/VW8NXYPM/notion.png" },
-          { name: "Redmine", color: "red-500", logoUrl: "https://i.ibb.co/qLpdb6j6/redmine.png" },
-          { name: "Adjust", color: "cyan-400", logoUrl: "https://i.ibb.co/Gv7wLV3b/ad.png" }, 
-          { name: "Firebase", color: "yellow-500", logoUrl: "https://firebase.google.com/static/downloads/brand-guidelines/SVG/logo-logomark.svg" },
-          { name: "ETC", color: "slate-400", icon: <MoreHorizontal className="text-slate-400 w-full h-full" />, sub: "Fast Learner" } 
+          // AI Tools
+          { name: "ChatGPT", color: "green-400", logoUrl: "https://i.ibb.co/QvWb0bHH/chatgpt.png", sub: "번역·문서작성", category: "ai" },
+          { name: "Gemini", color: "blue-400", logoUrl: "https://i.ibb.co/DHfLW2WH/gemini.png", sub: "조사·요약", category: "ai" },
+          { name: "Grok", color: "white", logoUrl: "https://i.ibb.co/cccxS6wL/grok.png", sub: "트렌드분석", category: "ai" },
+          { name: "Perplexity", color: "teal-400", logoUrl: "https://i.ibb.co/RGf12WhM/per.png", sub: "리서치·검색", category: "ai" },
+          { name: "Midjourney", color: "pink-400", logoUrl: "https://i.ibb.co/7NLP13wq/midjourney.png", sub: "이미지생성", category: "ai" },
+          { name: "ComfyUI", color: "purple-400", logoUrl: "https://i.ibb.co/VYNXws6G/comfyui.png", sub: "이미지파이프라인", category: "ai" },
+          { name: "Gamma", color: "yellow-400", logoUrl: "https://i.ibb.co/Dx9kZn5/gamma.png", sub: "AI 프레젠테이션", category: "ai" },
+          { name: "NotebookLM", color: "blue-300", logoUrl: "https://i.ibb.co/HTVPDpFs/notebooklm.png", sub: "문서분석·학습", category: "ai" },
+          { name: "Claude", color: "purple-400", logoUrl: "https://i.ibb.co/pjDyhB6k/claude.png", sub: "기획·분석", category: "ai" },
+          { name: "n8n", color: "red-500", logoUrl: "https://i.ibb.co/bjq8x6jC/n8n.png", sub: "워크플로우자동화", category: "ai" },
+          { name: "OpenClaw", color: "cyan-400", logoUrl: "https://i.ibb.co/S4srJHSC/openclaw.png", sub: "AI 에이전트", category: "ai" },
+          // Work Tools
+          { name: "Microsoft 365", color: "orange-500", logoUrl: "https://i.ibb.co/ycp3Z5bz/microsoft.png", sub: "Excel·Word·PPT", category: "work" },
+          { name: "Google Workspace", color: "blue-500", logoUrl: "https://i.ibb.co/ZzKqm8Sb/googleworkspace.png", sub: "Docs·Sheets·Slides", category: "work" },
+          { name: "Notion", color: "gray-200", logoUrl: "https://i.ibb.co/VW8NXYPM/notion.png", sub: "프로젝트관리", category: "work" },
+          { name: "Redmine", color: "red-500", logoUrl: "https://i.ibb.co/qLpdb6j6/redmine.png", sub: "이슈트래킹", category: "work" },
+          { name: "Adjust", color: "cyan-400", logoUrl: "https://i.ibb.co/Gv7wLV3b/ad.png", sub: "유저행동분석", category: "work" },
+          { name: "Firebase", color: "yellow-500", logoUrl: "https://firebase.google.com/static/downloads/brand-guidelines/SVG/logo-logomark.svg", sub: "데이터분석", category: "work" },
+          { name: "ETC", color: "slate-400", icon: <MoreHorizontal className="text-slate-400 w-full h-full" />, sub: "Fast Learner", category: "work" }
         ];
 
         
@@ -1247,17 +1252,26 @@
                                                         {item.company}
                                                     </div>
 
-                                                    <div className="flex flex-wrap gap-2">
+                                                    <div className="flex flex-col gap-2">
                                                         {item.projects.map((p, pIdx) => (
-                                                            <div 
-                                                                key={pIdx} 
-                                                                className="flex flex-col bg-slate-800/50 rounded-lg px-3 py-2 border border-slate-700/50 group-hover:border-slate-600 transition-colors w-full cursor-pointer hover:bg-slate-800"
+                                                            <div
+                                                                key={pIdx}
+                                                                className="flex items-center gap-3 bg-slate-800/50 rounded-lg border border-slate-700/50 group-hover:border-slate-600 transition-all w-full cursor-pointer hover:bg-slate-800 overflow-hidden"
                                                                 onMouseEnter={() => setHoveredProjectImage(p.img)}
                                                                 onMouseLeave={() => setHoveredProjectImage(null)}
                                                             >
-                                                                <div className="flex items-center justify-between">
-                                                                    <span className="text-sm font-bold text-white font-kor">{p.name}</span>
-                                                                    <span className="text-[10px] text-slate-500 font-kor">{p.info}</span>
+                                                                <div className="relative w-16 h-14 flex-shrink-0 overflow-hidden">
+                                                                    <img
+                                                                        src={p.img}
+                                                                        alt={p.name}
+                                                                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                                                                        onError={(e) => { e.target.style.display='none'; }}
+                                                                    />
+                                                                    <div className="absolute inset-0 bg-gradient-to-r from-transparent to-slate-800/60"></div>
+                                                                </div>
+                                                                <div className="flex flex-col flex-1 min-w-0 py-2 pr-3">
+                                                                    <span className="text-sm font-bold text-white font-kor leading-tight">{p.name}</span>
+                                                                    <span className="text-[10px] text-slate-400 font-kor mt-0.5">{p.info}</span>
                                                                 </div>
                                                             </div>
                                                         ))}
@@ -1415,34 +1429,55 @@
                                 <h2 className="text-3xl md:text-4xl font-black mb-8 text-white flex flex-wrap items-center gap-3 break-keep font-eng">
                                 <Cpu className="text-purple-400 flex-shrink-0 w-8 h-8" /> TOOLS
                                 </h2>
-                                
-                                <div className="space-y-6">
-                                    <h3 className="text-2xl md:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-orange-300 to-red-300 mb-6 font-kor leading-tight break-keep whitespace-pre-line">
-                                        AI 시대!<br/>
-                                        이젠 AI의 활용도 경쟁력!
+
+                                <div className="space-y-5">
+                                    <h3 className="text-2xl md:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-orange-300 to-red-300 font-kor leading-tight break-keep">
+                                        AI를 실무에 녹인 게임 PM입니다.
                                     </h3>
 
-                                    <div className="space-y-6 text-slate-300 text-base md:text-lg font-kor leading-relaxed break-keep">
-                                        <p className="whitespace-pre-line">
-                                            언제, 어떤 문제를 해결하기 위해 <br/>
-                                            사용하는지 <span className="text-white font-bold">빠르게 변화하는 AI 환경 속에서</span><br/>
-                                            새로운 도구를 학습하고 실무에 적용하는<br/>
-                                            <span className="text-white font-bold">속도 자체도 경쟁력</span>으로 삼고 있습니다.
-                                        </p>
-                                        <p className="whitespace-pre-line">
-                                            그 덕택에 AI 뿐만 아니라 생소한 툴도<br/>
-                                            <span className="text-green-400 font-bold">빠르게 습득</span>하여 실무에 <span className="text-green-400 font-bold">즉시 적용하는<br/>
-                                            유연함</span>을 갖추고 있습니다.
-                                        </p>
+                                    <div className="flex flex-col gap-3 text-sm font-kor leading-relaxed break-keep">
+                                        <div className="bg-slate-900/60 border border-slate-700/50 rounded-xl p-4 text-slate-300">
+                                            AI를 통해&nbsp;
+                                            <span className="text-green-400 font-bold">효율 극대화</span>,&nbsp;
+                                            <span className="text-purple-400 font-bold">생산성 확보</span>,&nbsp;
+                                            <span className="text-pink-400 font-bold">시각화 가속</span>,&nbsp;
+                                            <span className="text-cyan-400 font-bold">자동화</span>&nbsp;
+                                            등으로 역량을 강화했습니다
+                                        </div>
+                                        <div className="bg-slate-900/60 border border-slate-700/50 rounded-xl p-4 text-slate-300">
+                                            "어떤 AI를, 언제, 어떤 목적으로 사용할 지 <span className="text-yellow-300 font-bold">판단하는 것도 역량입니다.</span>"
+                                        </div>
+                                        <div className="bg-slate-900/60 border border-slate-700/50 rounded-xl p-4 text-slate-300">
+                                            빠르게 변화하는 AI 환경에서 새 도구를 즉시 익혀 실무에 적용하는 <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-orange-300 to-red-300 font-bold">속도 자체를 경쟁력</span>으로 삼습니다.
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
-                            {/* Right Side: Tool Grid */}
-                            <div className="w-full lg:w-2/3 grid grid-cols-4 md:grid-cols-4 gap-2"> {/* Fixed to 4 columns */}
-                                {TOOL_LIST.map((tool, idx) => (
-                                    <ToolCard key={idx} tool={tool} />
-                                ))}
+                            {/* Right Side: Tool Grid with Categories */}
+                            <div className="w-full lg:w-2/3 flex flex-col gap-6">
+                                <div>
+                                    <div className="flex items-center gap-2 mb-3">
+                                        <span className="text-xs font-bold text-purple-300 uppercase tracking-widest font-eng border border-purple-500/40 bg-purple-900/20 px-3 py-1 rounded-full">AI Tools</span>
+                                        <span className="text-xs text-slate-500 font-kor">실무에 직접 활용 중인 AI</span>
+                                    </div>
+                                    <div className="grid grid-cols-4 gap-2">
+                                        {TOOL_LIST.filter(t => t.category === "ai").map((tool, idx) => (
+                                            <ToolCard key={idx} tool={tool} />
+                                        ))}
+                                    </div>
+                                </div>
+                                <div className="border-t border-slate-800 pt-5">
+                                    <div className="flex items-center gap-2 mb-3">
+                                        <span className="text-xs font-bold text-blue-300 uppercase tracking-widest font-eng border border-blue-500/40 bg-blue-900/20 px-3 py-1 rounded-full">Work Tools</span>
+                                        <span className="text-xs text-slate-500 font-kor">프로젝트 관리 및 데이터 분석</span>
+                                    </div>
+                                    <div className="grid grid-cols-4 gap-2">
+                                        {TOOL_LIST.filter(t => t.category === "work").map((tool, idx) => (
+                                            <ToolCard key={idx} tool={tool} />
+                                        ))}
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
