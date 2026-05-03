@@ -7,11 +7,92 @@
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800;900&family=Noto+Sans+KR:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <script>
+        // Remap Tailwind palette to MOA ISSUE editorial theme
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // slate scale inverted: deep darks become soft papers, light darks become inks
+                        slate: {
+                            50:  '#121417',
+                            100: '#1a1c20',
+                            200: '#30343a',
+                            300: '#30343a',
+                            400: '#707782',
+                            500: '#707782',
+                            600: '#cfd6df',
+                            700: '#e0e4ea',
+                            800: '#edeef2',
+                            900: '#eaecf0',
+                            950: '#e8eaee'
+                        },
+                        // remap pure black so dark gradient stops fade to soft paper, not vignette
+                        black: '#eef0f3',
+                        // primary accent: teal
+                        yellow: {
+                            300: '#13a48f',
+                            400: '#0a8f7d',
+                            500: '#0a8f7d',
+                            600: '#077363'
+                        },
+                        // warm tan accent
+                        orange: {
+                            300: '#d4a07d',
+                            400: '#c69274',
+                            500: '#b9825b'
+                        },
+                        // deep editorial blue
+                        blue: {
+                            300: '#5a8aa3',
+                            400: '#315d73',
+                            500: '#274f64',
+                            600: '#1d4356',
+                            900: '#eef1f5'
+                        },
+                        // re-tone vivid accents to fit light editorial palette
+                        green: {
+                            300: '#13a48f',
+                            400: '#0a8f7d',
+                            500: '#0a8f7d',
+                            600: '#077363',
+                            900: '#eef1f5'
+                        },
+                        emerald: {
+                            400: '#0a8f7d'
+                        },
+                        cyan: {
+                            400: '#5a8aa3'
+                        },
+                        pink: {
+                            300: '#c69274',
+                            400: '#b9825b',
+                            500: '#9c6a4a',
+                            600: '#7e5538'
+                        },
+                        purple: {
+                            300: '#66717d',
+                            400: '#4a525a',
+                            500: '#30343a',
+                            900: '#eef1f5'
+                        },
+                        teal: {
+                            400: '#0a8f7d'
+                        },
+                        gray: {
+                            200: '#30343a'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Paperlogy', 'Apple SD Gothic Neo', 'Malgun Gothic', 'sans-serif']
+                    }
+                }
+            }
+        };
+    </script>
+
+    <!-- Paperlogy Font (MOA ISSUE primary typeface) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fonts-archive/Paperlogy/Paperlogy.css">
     
     <!-- Import Modules from ESM.sh with fixed dependencies (React 18.3.1) -->
     <script type="importmap">
@@ -29,29 +110,117 @@
     <script src="https://unpkg.com/@babel/standalone@7.24.0/babel.min.js"></script>
 
     <style>
-        /* Custom Styles */
-        body { margin: 0; overflow-x: hidden; background-color: #020617; color: #f1f5f9; font-family: 'Noto Sans KR', sans-serif; }
+        /* MOA ISSUE editorial theme tokens — toned-down paper for comfortable long-form reading */
+        :root {
+            --ink: #121417;
+            --ink-2: #30343a;
+            --muted: #707782;
+            --line: #dde1e7;
+            --soft-line: #e8eaee;
+            --paper: #eef0f3;        /* page bg — soft cool paper, not eye-searing white */
+            --paper-2: #f3f4f7;      /* card bg */
+            --paper-3: #e8efec;      /* tinted accent surface */
+            --accent: #0a8f7d;
+            --accent-2: #b9825b;
+            --accent-3: #315d73;
+            --accent-4: #c6a36a;
+            --accent-5: #66717d;
+            --shadow-soft: 0 8px 24px rgba(18, 20, 23, 0.06);
+            --shadow-card: 0 18px 44px rgba(18, 20, 23, 0.08);
+            --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        body {
+            margin: 0;
+            overflow-x: hidden;
+            background:
+                linear-gradient(180deg, rgba(232, 234, 238, 0.95) 0%, rgba(238, 240, 243, 1) 34%),
+                var(--paper);
+            color: var(--ink);
+            font-family: 'Paperlogy', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+            word-break: keep-all;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
         .clip-path-slanted {
             clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
         }
-        
-        /* Font Classes */
-        .font-eng { font-family: 'Montserrat', sans-serif; }
-        .font-kor { font-family: 'Noto Sans KR', sans-serif; }
 
-        /* Hide scrollbar for Chrome, Safari and Opera */
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 8px;
+        /* Font classes — unify on Paperlogy for editorial feel */
+        .font-eng,
+        .font-kor {
+            font-family: 'Paperlogy', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+            letter-spacing: -0.01em;
         }
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: #1e293b;
-        }
+
+        /* Light scrollbar */
+        .custom-scrollbar::-webkit-scrollbar { width: 8px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: var(--soft-line); }
         .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #475569;
+            background: var(--line);
             border-radius: 4px;
         }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-            background: #64748b;
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: var(--muted); }
+
+        /* text-white / text-black would be invisible or jarring on the new light bg — coerce to ink */
+        .text-white { color: var(--ink) !important; }
+        .text-black { color: var(--paper) !important; } /* on accent buttons → white */
+
+        /* bg-black overlays from the gaming theme become paper surfaces */
+        .bg-black { background-color: var(--paper) !important; }
+        .border-white { border-color: var(--line) !important; }
+
+        /* Soften neon glows / arbitrary shadow values to subtle editorial shadows */
+        [class*="shadow-["] {
+            box-shadow: var(--shadow-soft) !important;
+        }
+
+        /* Refine cards (commonly bg-slate-900/80 + border-slate-700 in source) */
+        .bg-slate-900\/80,
+        .bg-slate-900\/50,
+        .bg-slate-800\/80,
+        .bg-slate-800\/50 {
+            background-color: rgba(255, 255, 255, 0.78) !important;
+            backdrop-filter: blur(18px);
+            border-color: var(--line) !important;
+        }
+
+        /* Plain bg-white cards: lift slightly above the paper background */
+        .bg-white {
+            background-color: #ffffff !important;
+            box-shadow: var(--shadow-soft);
+        }
+
+        /* Brand gradient headings: yellow→orange becomes signature teal→deep blue */
+        .from-yellow-400.to-orange-500,
+        .from-yellow-300.to-orange-400 {
+            --tw-gradient-from: var(--accent) !important;
+            --tw-gradient-to: var(--accent-3) !important;
+            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+        }
+
+        /* Selection style */
+        ::selection {
+            background: rgba(10, 143, 125, 0.22);
+            color: var(--ink);
+        }
+
+        /* Editorial sticky header (MOA-style) */
+        .site-nav {
+            background: rgba(238, 240, 243, 0.78);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(221, 225, 231, 0.7);
+            transition: background 240ms ease, border-color 240ms ease, box-shadow 240ms ease;
+        }
+        .site-nav::after {
+            content: "";
+            position: absolute;
+            left: 0; right: 0; bottom: -1px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-3), var(--accent-2));
+            opacity: 0.85;
         }
     </style>
     <!-- Google tag (gtag.js) -->
@@ -905,46 +1074,80 @@
                     )}
                 </AnimatePresence>
 
-                <nav className="fixed top-0 left-0 w-full z-50 p-4 flex justify-between items-center bg-slate-950/80 backdrop-blur-md md:bg-transparent border-b border-white/10 md:border-none z-50">
-                    <div className="text-2xl font-black tracking-tighter italic text-yellow-400 flex items-center gap-2 font-eng">
-                    <Gamepad2 className="w-8 h-8" />
-                    PORTFOLIO
-                    </div>
-                    
-                    <div className="hidden md:flex gap-4">
-                    {navItems.map(item => (
-                        <NeonButton 
-                        key={item.id} 
-                        active={activeSection === item.id} 
-                        onClick={() => scrollToSection(item.id)}
+                <nav className="site-nav fixed top-0 left-0 w-full z-50">
+                    <div className="max-w-6xl mx-auto px-5 md:px-8 h-[60px] flex justify-between items-center">
+                        <button
+                            onClick={() => scrollToSection('intro')}
+                            className="flex items-center gap-2.5 group"
                         >
-                        {item.label}
-                        </NeonButton>
-                    ))}
-                    </div>
+                            <span className="inline-block w-1.5 h-1.5 rounded-full bg-[var(--accent)]"></span>
+                            <span className="font-eng text-[15px] font-bold tracking-tight text-[var(--ink)] group-hover:text-[var(--accent)] transition-colors">
+                                PM&nbsp;JJ
+                            </span>
+                            <span className="hidden sm:inline-block text-[12px] text-[var(--muted)] font-eng tracking-wide">
+                                · Game PM Portfolio
+                            </span>
+                        </button>
 
-                    <button className="md:hidden text-white" onClick={() => setMenuOpen(!menuOpen)}>
-                    {menuOpen ? <X /> : <Menu />}
-                    </button>
+                        <div className="hidden md:flex items-center gap-1">
+                            {navItems.map(item => {
+                                const isActive = activeSection === item.id;
+                                return (
+                                    <button
+                                        key={item.id}
+                                        onClick={() => scrollToSection(item.id)}
+                                        className={`relative px-3 py-2 text-[13px] font-eng font-semibold tracking-wide transition-colors ${
+                                            isActive
+                                                ? 'text-[var(--accent)]'
+                                                : 'text-[var(--ink-2)] hover:text-[var(--accent)]'
+                                        }`}
+                                    >
+                                        {item.label}
+                                        {isActive && (
+                                            <motion.span
+                                                layoutId="nav-active"
+                                                className="absolute left-3 right-3 -bottom-[1px] h-[2px] bg-[var(--accent)] rounded-full"
+                                                transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                                            />
+                                        )}
+                                    </button>
+                                );
+                            })}
+                        </div>
+
+                        <button
+                            className="md:hidden text-[var(--ink)] p-1"
+                            onClick={() => setMenuOpen(!menuOpen)}
+                            aria-label="Toggle menu"
+                        >
+                            {menuOpen ? <X size={20} /> : <Menu size={20} />}
+                        </button>
+                    </div>
                 </nav>
 
                 <AnimatePresence>
                     {menuOpen && (
-                    <motion.div 
-                        initial={{ x: '100%' }}
-                        animate={{ x: 0 }}
-                        exit={{ x: '100%' }}
-                        className="fixed inset-0 z-40 bg-slate-900 flex flex-col items-center justify-center gap-8 md:hidden"
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.18 }}
+                        className="fixed inset-0 z-40 bg-[var(--paper)]/95 backdrop-blur-md flex flex-col items-center justify-center gap-6 md:hidden"
                     >
-                        {navItems.map(item => (
-                        <button 
-                            key={item.id}
-                            onClick={() => { scrollToSection(item.id); setMenuOpen(false); }}
-                            className="text-2xl font-bold uppercase tracking-widest hover:text-yellow-400 font-eng"
-                        >
-                            {item.label}
-                        </button>
-                        ))}
+                        {navItems.map(item => {
+                            const isActive = activeSection === item.id;
+                            return (
+                                <button
+                                    key={item.id}
+                                    onClick={() => { scrollToSection(item.id); setMenuOpen(false); }}
+                                    className={`text-xl font-eng font-semibold tracking-wide transition-colors ${
+                                        isActive ? 'text-[var(--accent)]' : 'text-[var(--ink-2)]'
+                                    }`}
+                                >
+                                    {item.label}
+                                </button>
+                            );
+                        })}
                     </motion.div>
                     )}
                 </AnimatePresence>
